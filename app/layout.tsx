@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
       <NextAuthProvider>
           <Toaster />
-      <Navbar />
+          <Navbar />
       {children}
       </NextAuthProvider>
       </body>

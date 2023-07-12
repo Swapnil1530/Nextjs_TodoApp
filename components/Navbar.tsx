@@ -1,7 +1,8 @@
 "use client"
 import Link from "next/link";
 import {useSelectedLayoutSegment} from "next/navigation";
-import {useSession} from "next-auth/react";
+import {signOut, useSession} from "next-auth/react";
+import {signout} from "next-auth/core/routes";
 
 const linkData:any = [
     {
@@ -37,7 +38,7 @@ const Navbar = () => {
                     );
                 })}
                 {user && user  ? (
-                    <button >Logout</button>
+                    <button onClick={()=>signOut()}>Logout</button>
                 ) : (
                     <Link href={"/login"}>Login</Link>
                 )}

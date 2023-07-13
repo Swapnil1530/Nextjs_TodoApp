@@ -12,7 +12,7 @@ const linkData:any = [
     },
     {
         lable: "Profile",
-        path: "/profile",
+        path: "/",
         targetSegment: "profile",
     },
 ]
@@ -21,7 +21,7 @@ const Navbar = () => {
    const user = session?.user;
     const activeSegment = useSelectedLayoutSegment();
     return (
-        <div className="bg-slate-700 text-white flex justify-between fixed w-[60%] left-0 right-0 m-auto top-5 px-10 py-4 rounded shadow-md">
+        <div className="bg-slate-700 text-white flex justify-between  m-auto top-5 px-10 py-4 rounded shadow-md">
             <h1 className="">Todo</h1>
             <div className="space-x-10">
                 {linkData.map((link:any, index:any) => {

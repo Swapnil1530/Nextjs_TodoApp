@@ -13,7 +13,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
 
     return (
         <form
-            onSubmit={(e) => {
+            onSubmit={ (e) => {
                 e.preventDefault();
                 setLoading(true);
                 if (type === "login") {
@@ -45,10 +45,11 @@ export default function Form({ type }: { type: "login" | "register" }) {
                     }).then(async (res) => {
                         setLoading(false);
                         if (res.status === 200) {
-                            toast.success("Data Submitted");
+                            toast.success("Registerd Successfully");
                             router.refresh();
+                            router.push("/login");
                         } else {
-                            const { error } = await res.json();
+                            const {error} = await res.json();
                             toast.error(error);
                         }
                     });

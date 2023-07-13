@@ -8,7 +8,7 @@ const Login = () => {
                 <div className="flex border-b border-white flex-col items-center justify-center space-y-3  px-2 py-4  text-center sm:px-16">
                     <h3 className="text-xl font-semibold">Sign In</h3>
                     <p className="text-sm text-white  ">
-                        Use your PrnNumber and password to sign in
+                        Use your Email and password to sign in
                     </p>
                 </div>
                 <Form type="login" />

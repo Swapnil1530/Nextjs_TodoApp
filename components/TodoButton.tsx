@@ -1,13 +1,17 @@
 "use client"
-import {db} from "@/lib/prisma";
+
 import {useRouter} from "next/navigation";
 import toast from "react-hot-toast";
-import {useState} from "react";
 
-const TodoButton = ({id,completed}:any) => {
+type TodoButton = {
+    id : string,
+    completed : boolean,
+}
+
+const TodoButton = ({id,completed}:TodoButton) => {
     const router = useRouter();
-    const [isChecked , setIsChecked] = useState(completed);
-    const updateHandler = async (id:any) => {
+
+    const updateHandler = async () => {
         try {
            const res = await fetch(`/api/Task/${id}`,{
                method:'PUT',
@@ -16,11 +20,11 @@ const TodoButton = ({id,completed}:any) => {
            if(!res.ok) return toast.error(data.message);
            router.refresh();
            toast.success(data.message);
-        }catch (e) {
-            
+        }catch (e:any) {
+            throw new Error(e)
         }
     }
-    const deleteHandler = async(id:any)=>{
+    const deleteHandler = async()=>{
         try{
           const res = await fetch(`/api/Task/${id}`,{
               method:"DELETE",
@@ -40,14 +44,17 @@ const TodoButton = ({id,completed}:any) => {
                className="w-5 h-5"
                type="checkbox"
                checked={completed}
-               onChange={() => updateHandler(id)}
+               onChange={() => updateHandler()}
            />
-           <button
-               onClick={() => deleteHandler(id)}
-               className="px-1 rounded-sm hover:bg-red-700 transition bg-red-600"
-           >
-               Delete
-           </button>
+           {completed && (
+               <button
+                   onClick={() => deleteHandler()}
+                   className="px-1 rounded-sm hover:bg-red-700 transition bg-red-600"
+               >
+                   Delete
+               </button>
+           )}
+
        </div>
     );
 }

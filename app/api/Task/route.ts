@@ -5,13 +5,12 @@ import {db} from "@/lib/prisma";
 export async function POST(req:Request,res:Response){
     const session = await getServerSession(authOptions);
     const user = session?.user;
-    const {title,desc} = await req.json();
+    const {title} = await req.json();
 
   try {
       const TaskData = await db.todotask.create({
           data:{
               title,
-              desc,
               user : {
                   connect: {
                       id: user.id,

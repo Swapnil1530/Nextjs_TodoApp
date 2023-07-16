@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/*form input{*/
+/*  border: .1rem solid #ccc;*/
+/*  border-radius: .3rem;*/
+/*  width: 30rem;*/
+/*  user-focus: none;*/
+/*  padding: .1rem .6rem;*/
+/*  font-size: 1.6rem;*/
+/*  letter-spacing: .06rem;*/
+/*  font-weight: bold;*/
+/*  margin-left: 90px;*/
+/*}*/
+
+/*form button{*/
+/*  padding: .7rem 3rem;*/
+/*  border: none;*/
+/*  border-radius: .3rem;*/
+/*  font-weight: bold;*/
+/*  cursor: pointer;*/
+/*  margin-left: 2.2rem;*/
+/*}*/
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
